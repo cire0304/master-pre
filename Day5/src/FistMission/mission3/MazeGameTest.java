@@ -74,7 +74,6 @@ public class MazeGameTest {
         }
 
 
-
     }
     public static void  printStackElement(Stack<Node> stack){
         System.out.print("현재 스택 원소 : ");

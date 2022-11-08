@@ -19,8 +19,11 @@ public class Main {
             case 1:
                 NumClass result;
                 String str = " 10.2 +  5 ";
+
                 Calculator calc = new Calculator(str);
+
                 result = calc.calc();
+
                 System.out.println(result.getNum());
                 break;
 

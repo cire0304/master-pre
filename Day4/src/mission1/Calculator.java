@@ -17,6 +17,9 @@ public class Calculator {
         while(tokens.hasMoreTokens()){
             list.add(tokens.nextToken());
         }
+
+
+
         // ===================
         if (hasPoint(list.get(0)) || hasPoint(list.get(2))){
             num1 = new NumClass(Float.parseFloat(list.get(0)));
@@ -26,6 +29,9 @@ public class Calculator {
             num1 = new NumClass(Integer.parseInt(list.get(0)));
             num2 = new NumClass(Integer.parseInt(list.get(2)));
         }
+
+
+
         calculator = new CalculateClass(list.get(1));
     }
 
