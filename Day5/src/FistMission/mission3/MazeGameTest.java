@@ -25,12 +25,15 @@ public class MazeGameTest {
         int[] dx = {1,0,-1,0};
         int[] dy = {0,1,0,-1};
         int[][] map = {
-                {1,0,1,1,1},
-                {1,0,1,0,1},
-                {1,0,1,1,1},
-                {1,1,1,0,1},
-                {0,0,0,0,1}};
-        int[][] visited = new int[5][5];
+                {0,0,1,1,1,1,1},
+                {1,0,0,0,0,0,1},
+                {1,1,1,0,1,1,1},
+                {1,1,1,0,1,1,1},
+                {1,0,0,0,0,0,1},
+                {1,0,1,1,1,1,1},
+                {1,0,0,0,0,0,0},
+                {1,1,1,1,1,1,0}};
+        int[][] visited = new int[8][7]; visited[0][0] = 1;
 
 
         Stack<Node> stack = new Stack<>();
@@ -49,19 +52,25 @@ public class MazeGameTest {
             nx = position.getX();
             ny = position.getY();
 
+            printCurrentPosition(nx,ny);
+            if(nx == 6 && ny == 7) {
+                System.out.println("목적지에 도착했습니다.");
+                // break;
+            }
+
             for(int i = 0;i<4;i++){
                 x = nx + dx[i];
                 y = ny + dy[i];
 
-                if( 0 <= x && x < 5 && 0 <= y && y < 5 ){
-                    if(map[y][x] == 1 && visited[y][x] == 0){
+                if( 0 <= x && x < 7 && 0 <= y && y < 8 ){
+                    if(map[y][x] == 0 && visited[y][x] == 0){
                         visited[y][x] = 1;
                         stack.push(new Node(x,y));
                         for(Node s : stack){
                             System.out.println(s.getX() + " ," + s.getY());
                         }
 
-                        printCurrentPosition(x,y);
+
                     }
                 }
             }
@@ -73,16 +82,19 @@ public class MazeGameTest {
 
     }
     public static void printCurrentPosition(int x, int y){
-        int[][] map = new int[5][5];
+        int[][] map = new int[8][7];
         int[][] map_ = {
-                {1,0,1,1,1},
-                {1,0,1,0,1},
-                {1,0,1,1,1},
-                {1,1,1,0,1},
-                {0,0,0,0,1}};
+                {0,0,1,1,1,1,1},
+                {1,0,0,0,0,0,1},
+                {1,1,1,0,1,1,1},
+                {1,1,1,0,1,1,1},
+                {1,0,0,0,0,0,1},
+                {1,0,1,1,1,1,1},
+                {1,0,0,0,0,0,0},
+                {1,1,1,1,1,1,0}};
 
-        for(int i = 0;i<5;i++){
-            for(int j =0;j<5;j++){
+        for(int i = 0;i<8;i++){
+            for(int j =0;j<7;j++){
                 if( i == y && j == x){
                     System.out.print("X");
                 }
@@ -91,11 +103,13 @@ public class MazeGameTest {
                 }
             }
             System.out.print("    ");
-            for(int k =0;k<5;k++){
+            for(int k =0;k<7;k++){
                 System.out.print(map_[i][k]);
             }
             System.out.println("");
         }
+        System.out.println("현재 위치      지도" );
+        System.out.println("현재 좌표 : (" + x + ", " + y + ")");
         System.out.println("=============================");
 
     }
