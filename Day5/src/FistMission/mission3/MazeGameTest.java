@@ -53,7 +53,7 @@ public class MazeGameTest {
             ny = position.getY();
 
             printCurrentPosition(nx,ny);
-            if(nx == 6 && ny == 7) {
+            if(nx == map[0].length && ny == map.length) {
                 System.out.println("목적지에 도착했습니다.");
                 // break;
             }
@@ -62,7 +62,7 @@ public class MazeGameTest {
                 x = nx + dx[i];
                 y = ny + dy[i];
 
-                if( 0 <= x && x < 7 && 0 <= y && y < 8 ){
+                if( 0 <= x && x < map[0].length && 0 <= y && y < map.length ){
                     if(map[y][x] == 0 && visited[y][x] == 0){
                         visited[y][x] = 1;
                         stack.push(new Node(x,y));
@@ -96,8 +96,8 @@ public class MazeGameTest {
                 {1,0,0,0,0,0,0},
                 {1,1,1,1,1,1,0}};
 
-        for(int i = 0;i<8;i++){
-            for(int j =0;j<7;j++){
+        for(int i = 0;i<map.length;i++){
+            for(int j =0;j<map[0].length;j++){
                 if( i == y && j == x){
                     System.out.print("X");
                 }
@@ -106,15 +106,13 @@ public class MazeGameTest {
                 }
             }
             System.out.print("    ");
-            for(int k =0;k<7;k++){
+            for(int k =0;k<map[0].length;k++){
                 System.out.print(map_[i][k]);
             }
             System.out.println("");
         }
         System.out.println("현재 위치      지도" );
         System.out.println("현재 좌표 : (" + x + ", " + y + ")");
-
-
     }
 
 
