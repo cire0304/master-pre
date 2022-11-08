@@ -66,21 +66,24 @@ public class MazeGameTest {
                     if(map[y][x] == 0 && visited[y][x] == 0){
                         visited[y][x] = 1;
                         stack.push(new Node(x,y));
-                        for(Node s : stack){
-                            System.out.println(s.getX() + " ," + s.getY());
-                        }
-
-
                     }
                 }
             }
-
-
+            printStackElement(stack);
+            System.out.println("=============================");
         }
 
 
 
     }
+    public static void  printStackElement(Stack<Node> stack){
+        System.out.print("현재 스택 원소 : ");
+        for(Node s : stack){
+            System.out.print("(" + s.getX() + ", " + s.getY() + ")");
+        }
+        System.out.println("");
+    }
+
     public static void printCurrentPosition(int x, int y){
         int[][] map = new int[8][7];
         int[][] map_ = {
@@ -110,7 +113,7 @@ public class MazeGameTest {
         }
         System.out.println("현재 위치      지도" );
         System.out.println("현재 좌표 : (" + x + ", " + y + ")");
-        System.out.println("=============================");
+
 
     }
 
