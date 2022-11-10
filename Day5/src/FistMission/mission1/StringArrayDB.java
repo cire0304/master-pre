@@ -17,17 +17,23 @@ class StringArrayDB {
     }
 
 
-    void searchArray(int index){
+    String searchArray(int index){
         System.out.print("요청하신 문자열 배열의 값은 " );
-        printArrayElements(index);
+        String outcome = printArrayElements(index);
+        System.out.println(outcome);
         System.out.print("입니다." );
+
+        return outcome;
     }
 
-    void printArrayElements(int index){
+    String printArrayElements(int index){
+        StringBuilder value = new StringBuilder();
         for (int i = 0; i<stringRepo.get(index).size();i++){
-            System.out.print(stringRepo.get(index).get(i) + " ");
+            value.append(stringRepo.get(index).get(i)).append(" ");
         }
 
+        value = new StringBuilder(value.toString().stripTrailing());
+        return value.toString();
     }
 
 
