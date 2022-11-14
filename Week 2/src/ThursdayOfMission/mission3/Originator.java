@@ -71,13 +71,4 @@ public class Originator {
         }
         return numOfFruits;
     }
-
-
-
-
-
-
-
-
-
 }

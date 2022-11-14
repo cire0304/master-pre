@@ -9,7 +9,7 @@ public class Memento {
 
     public Memento(int hasmoney, Stack<String> hasFruit) {
         this.hasMoney = hasmoney;
-        this.hasFruit = hasFruit;
+        Memento.hasFruit = hasFruit;
     }
 
 
@@ -21,8 +21,5 @@ public class Memento {
 
     public void setHasfruit(Stack<String> hasfruit){hasFruit = hasfruit;}
     public void setHasMoney(int hasMoney){ this.hasMoney = hasMoney; }
-
-
-
 
 }

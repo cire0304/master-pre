@@ -10,7 +10,6 @@ public class DiceGame {
         originator = new Originator();
     }
 
-
     public void gameMode() {
         int diceNum=0;
 
@@ -52,8 +51,6 @@ public class DiceGame {
             originator.setMememto(memento); // 상태 불러오기
         }
     }
-
-
 
 
 

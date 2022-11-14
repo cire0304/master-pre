@@ -53,11 +53,4 @@ public class DataBase {
         bufferedWriter.flush();
 
     }
-
-
-
-
-
-
-
 }
