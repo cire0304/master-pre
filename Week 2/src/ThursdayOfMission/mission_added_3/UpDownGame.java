@@ -1,4 +1,4 @@
-package SecondMission.mission_added_3;
+package ThursdayOfMission.mission_added_3;
 
 import java.util.Random;
 import java.util.Scanner;

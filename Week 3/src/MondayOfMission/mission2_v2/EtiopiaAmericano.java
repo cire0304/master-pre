@@ -1,10 +1,17 @@
-package MondayOfMission.mission2;
+package MondayOfMission.mission2_v2;
 
-public class EtiopiaAmericano extends Coffee{
+public class EtiopiaAmericano implements Coffee {
 
-    public EtiopiaAmericano(){
-        name = "EtiopiaAmericano";
+
+
+
+    public String ingredients = "EtiopiaAmericano";
+
+
+    public void brewing(){
+        System.out.println(ingredients);
     }
+
 
 
 }

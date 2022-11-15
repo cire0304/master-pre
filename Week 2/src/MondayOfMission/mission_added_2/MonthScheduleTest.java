@@ -1,4 +1,4 @@
-package FistMission.mission_added_2;
+package MondayOfMission.mission_added_2;
 
 public class MonthScheduleTest {
     public static void main(String[] args) {

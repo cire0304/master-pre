@@ -1,4 +1,4 @@
-package FistMission.mission_added_1;
+package MondayOfMission.mission_added_1;
 
 import java.util.Scanner;
 

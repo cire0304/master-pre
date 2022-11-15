@@ -1,6 +1,5 @@
-package FistMission.mission1;
+package MondayOfMission.mission1;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class MakeStringArray {

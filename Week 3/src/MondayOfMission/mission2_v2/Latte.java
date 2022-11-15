@@ -1,17 +1,16 @@
-package MondayOfMission.mission2;
+package MondayOfMission.mission2_v2;
 
-public class Latte extends Coffee{
 
-    Coffee americano;
-    String name = "Milk";
+public class Latte extends Dacorator{
 
     public Latte(Coffee coffee){
-        this.americano = coffee;
+        super(coffee);
+        ingredients = ingredients + " Adding Latte";
     }
+
 
     public void brewing(){
-        System.out.printf("%s adding %s",americano.name , name);
+        System.out.println(ingredients);
     }
-
 
 }

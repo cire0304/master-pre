@@ -1,9 +1,25 @@
-package MondayOfMission.mission2;
+package MondayOfMission.mission2_v2;
 
-public class KenyaAmericano extends Coffee{
 
+
+public class KenyaAmericano implements Coffee {
+
+    public String ingredients;
+
+    public String temp;
     public KenyaAmericano(){
-        name = "KenyaAmericano";
+        ingredients = getname();
+
+
     }
 
+    public String getname(){
+        return "KenyaAmericano";
+    }
+
+
+
+    public void brewing(){
+        System.out.println(ingredients);
+    }
 }

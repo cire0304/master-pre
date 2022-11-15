@@ -1,6 +1,5 @@
-package SecondMission.mission2;
+package ThursdayOfMission.mission2;
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class Student {
     private String name;

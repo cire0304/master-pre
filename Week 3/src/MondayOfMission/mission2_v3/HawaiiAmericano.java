@@ -1,5 +1,4 @@
-package MondayOfMission.mission2_v2;
-
+package MondayOfMission.mission2_v3;
 
 
 public class HawaiiAmericano implements Coffee {
@@ -10,7 +9,7 @@ public class HawaiiAmericano implements Coffee {
 
 
     public void brewing(){
-        System.out.println(ingredients);
+        System.out.print(ingredients);
     }
 
 }

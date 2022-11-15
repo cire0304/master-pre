@@ -1,6 +1,5 @@
-package FistMission.mission_added_3;
+package MondayOfMission.mission_added_3;
 
-import java.util.Arrays;
 import java.util.Scanner;
 import java.util.ArrayList;
 public class ReservationProgram {

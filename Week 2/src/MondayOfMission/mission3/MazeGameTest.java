@@ -1,7 +1,6 @@
-package FistMission.mission3;
+package MondayOfMission.mission3;
 
 import java.util.Stack;
-import java.util.Arrays;
 
 class Node{
     int x, y;

@@ -1,7 +1,6 @@
-package FistMission.mission2;
+package MondayOfMission.mission2;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Collections;
 
 public class Worker {

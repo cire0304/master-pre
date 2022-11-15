@@ -1,5 +1,4 @@
-package FistMission.mission2;
-import java.util.*;
+package MondayOfMission.mission2;
 
 
 public class Librarian {

@@ -1,4 +1,4 @@
-package MondayOfMission.mission2_v2;
+package MondayOfMission.mission2_v3;
 
 public class EtiopiaAmericano implements Coffee {
 
@@ -9,7 +9,7 @@ public class EtiopiaAmericano implements Coffee {
 
 
     public void brewing(){
-        System.out.println(ingredients);
+        System.out.print(ingredients);
     }
 
 

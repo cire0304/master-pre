@@ -1,4 +1,4 @@
-package SecondMission.mission_added_1;
+package ThursdayOfMission.mission_added_1;
 
 public class StaticEx {
     public static void main(String[] args) {

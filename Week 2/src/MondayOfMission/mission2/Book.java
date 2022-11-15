@@ -1,4 +1,4 @@
-package FistMission.mission2;
+package MondayOfMission.mission2;
 
 public class Book {
     String title;

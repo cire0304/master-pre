@@ -1,5 +1,4 @@
-package MondayOfMission.mission2_v2;
-
+package MondayOfMission.mission2_v3;
 
 
 public class BrazilAmericano implements Coffee {
@@ -9,7 +8,7 @@ public class BrazilAmericano implements Coffee {
 
     @Override
     public void brewing(){
-        System.out.println(ingredients);
+        System.out.print("BrazilAmericano");
     }
 
 

@@ -1,8 +1,16 @@
-package MondayOfMission.mission2;
+package MondayOfMission.mission2_v2;
 
-public class HawaiiAmericano extends Coffee{
 
-    public HawaiiAmericano(){
-        name = "HawaiiAmericano";
+
+public class HawaiiAmericano implements Coffee {
+
+
+
+    public String ingredients = "HawaiiAmericano";
+
+
+    public void brewing(){
+        System.out.println(ingredients);
     }
+
 }

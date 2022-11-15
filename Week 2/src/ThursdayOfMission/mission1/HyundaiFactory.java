@@ -1,4 +1,4 @@
-package SecondMission.mission1;
+package ThursdayOfMission.mission1;
 
 public class HyundaiFactory {
     private static HyundaiFactory factory;

@@ -1,2 +1,12 @@
-package MondayOfMission.mission2_v2;public class Coffee {
+package MondayOfMission.mission2_v2;
+
+public interface Coffee {
+
+
+    public String ingredients = "";
+    public void brewing();
+
+
+
+
 }

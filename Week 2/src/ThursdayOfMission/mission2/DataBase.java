@@ -1,4 +1,4 @@
-package SecondMission.mission2;
+package ThursdayOfMission.mission2;
 
 import java.io.*;
 import java.util.ArrayList;

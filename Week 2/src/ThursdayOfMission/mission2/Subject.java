@@ -1,4 +1,4 @@
-package SecondMission.mission2;
+package ThursdayOfMission.mission2;
 
 public class Subject {
     private String name;

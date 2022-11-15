@@ -1,14 +1,15 @@
-package MondayOfMission.mission2;
+package MondayOfMission.mission2_v2;
 
-public class WhippedCream extends Coffee{
 
-    Mocha mocha;
-    String name = "Whipping";
+public class WhippedCream extends Dacorator {
 
-    public WhippedCream(Mocha mocha){
-        this.mocha = mocha;
+    public WhippedCream(Coffee coffee){
+        super(coffee);
+        ingredients = ingredients + " Adding WhippedCream";
     }
+
+
     public void brewing(){
-        System.out.printf("%s adding %s adding %s adding %s ",mocha.latte.americano.name , mocha.latte.name, mocha.name, name);
+        System.out.println(ingredients);
     }
 }

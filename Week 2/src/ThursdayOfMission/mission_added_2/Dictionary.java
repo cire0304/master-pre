@@ -1,4 +1,4 @@
-package SecondMission.mission_added_2;
+package ThursdayOfMission.mission_added_2;
 
 public class Dictionary {
     private static String[] kor = {"사랑", "아기", "돈", "미래", "희망"};

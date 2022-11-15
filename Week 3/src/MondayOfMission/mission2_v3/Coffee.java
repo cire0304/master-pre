@@ -1,4 +1,4 @@
-package MondayOfMission.mission2_v2;
+package MondayOfMission.mission2_v3;
 
 public interface Coffee {
 

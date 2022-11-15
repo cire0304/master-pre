@@ -1,14 +1,15 @@
-package MondayOfMission.mission2;
+package MondayOfMission.mission2_v2;
 
-public class Mocha extends Coffee{
 
-    Latte latte;
-    String name = "MochaSyrup";
 
-    public Mocha(Latte latte){
-        this.latte = latte;
+public class Mocha extends Dacorator {
+
+    public Mocha(Coffee coffee){
+        super(coffee);
+        ingredients = ingredients + " Adding Mocha";
     }
+    @Override
     public void brewing(){
-        System.out.printf("%s adding %s adding %s ",latte.americano.name , latte.name, name);
+        System.out.println(ingredients);
     }
 }

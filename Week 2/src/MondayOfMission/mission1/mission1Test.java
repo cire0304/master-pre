@@ -1,4 +1,4 @@
-package FistMission.mission1;
+package MondayOfMission.mission1;
 
 public class mission1Test {
 

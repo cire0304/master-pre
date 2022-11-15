@@ -1,4 +1,4 @@
-package MondayOfMission.mission2_v2;
+package MondayOfMission.mission2_v3;
 
 public class CoffeeTest {
 
@@ -10,7 +10,7 @@ public class CoffeeTest {
 
         Coffee kenyaAmericano = new KenyaAmericano();
         kenyaAmericano.brewing();
-        //System.out.println(((KenyaAmericano) kenyaAmericano).temp);
+        System.out.println();
 
         Coffee kenyaLatte = new Latte(kenyaAmericano);
         kenyaLatte.brewing();

@@ -2,11 +2,16 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Day4/Day4.iml" filepath="$PROJECT_DIR$/Day4/Day4.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Day5/Day5.iml" filepath="$PROJECT_DIR$/Day5/Day5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Agorithm/Agorithm.iml" filepath="$PROJECT_DIR$/Agorithm/Agorithm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Week 1/Day4.iml" filepath="$PROJECT_DIR$/Week 1/Day4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Week 2/Day5.iml" filepath="$PROJECT_DIR$/Week 2/Day5.iml" />
       <module fileurl="file://$PROJECT_DIR$/HW_1/HW_1.iml" filepath="$PROJECT_DIR$/HW_1/HW_1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Pattern/Pattern.iml" filepath="$PROJECT_DIR$/Pattern/Pattern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Pattern/Singleton/Singleton.iml" filepath="$PROJECT_DIR$/Pattern/Singleton/Singleton.iml" />
       <module fileurl="file://$PROJECT_DIR$/TEST_ITEM_POOL/TEST_ITEM_POOL.iml" filepath="$PROJECT_DIR$/TEST_ITEM_POOL/TEST_ITEM_POOL.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Day4/operator/operator.iml" filepath="$PROJECT_DIR$/Day4/operator/operator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TextBook/TextBook.iml" filepath="$PROJECT_DIR$/TextBook/TextBook.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Week 3/Week 3.iml" filepath="$PROJECT_DIR$/Week 3/Week 3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Week 1/operator/operator.iml" filepath="$PROJECT_DIR$/Week 1/operator/operator.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/workspace.iml" filepath="$PROJECT_DIR$/.idea/workspace.iml" />
     </modules>
   </component>

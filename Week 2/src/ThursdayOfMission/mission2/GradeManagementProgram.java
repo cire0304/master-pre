@@ -1,7 +1,4 @@
-package SecondMission.mission2;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
+package ThursdayOfMission.mission2;
 import java.io.IOException;
 import java.util.ArrayList;
 

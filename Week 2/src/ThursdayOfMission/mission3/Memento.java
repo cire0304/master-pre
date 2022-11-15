@@ -1,4 +1,4 @@
-package SecondMission.mission3;
+package ThursdayOfMission.mission3;
 import java.util.Stack;
 
 public class Memento {

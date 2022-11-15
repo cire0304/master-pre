@@ -1,4 +1,4 @@
-package FistMission.mission_added_3;
+package MondayOfMission.mission_added_3;
 
 public class Seat {
 

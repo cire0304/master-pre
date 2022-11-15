@@ -1,6 +1,4 @@
-package FistMission.mission_added_2;
-import java.util.ArrayList;
-import java.util.Arrays;
+package MondayOfMission.mission_added_2;
 import java.util.Scanner;
 
 public class MonthSchedule {

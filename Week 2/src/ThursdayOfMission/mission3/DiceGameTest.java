@@ -1,4 +1,4 @@
-package SecondMission.mission3;
+package ThursdayOfMission.mission3;
 
 public class DiceGameTest {
 

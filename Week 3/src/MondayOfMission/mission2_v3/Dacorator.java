@@ -1,21 +1,17 @@
-package MondayOfMission.mission2_v2;
+package MondayOfMission.mission2_v3;
 
-abstract public class Dacorator implements Coffee{
+abstract public class Dacorator implements Coffee {
 
 
-    public String ingredients;
-
+    public Coffee coffee;
     public Dacorator(Coffee coffee){
-        ingredients = coffee.ingredients;
-
+        this.coffee = coffee;
     }
-
-
 
     public void brewing(){
+        coffee.brewing();
 
     }
-
 
     }
 

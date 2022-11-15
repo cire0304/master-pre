@@ -1,6 +1,5 @@
-package SecondMission.mission2;
+package ThursdayOfMission.mission2;
 
-import java.io.File;
 import java.io.IOException;
 
 public class GradeManagementProgramTest {
