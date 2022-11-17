@@ -1,6 +1,6 @@
-package MondayOfMission.mission_added_3;
+package MondayOfMission.mission_added_4;
 
-public class Point3D extends Point{
+public class Point3D extends Point {
     private int z;
 
     public Point3D(int x, int y, int z){

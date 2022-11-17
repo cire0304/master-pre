@@ -1,2 +1,4 @@
-package ThursdayOfMission.mission2;public class Subject {
+package ThursdayOfMission.mission2;
+
+public class Subject {
 }

@@ -1,4 +1,4 @@
-package MondayOfMission.mission_added_2;
+package MondayOfMission.mission_added_3;
 
 public class ColorPoint extends Point {
     private String color;

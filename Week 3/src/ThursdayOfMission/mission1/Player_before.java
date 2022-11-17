@@ -1,13 +1,13 @@
 package ThursdayOfMission.mission1;
 
-public class Player {
+public class Player_before {
 
     public static final int BEGINNER_LEVEL = 1;
     public static final int ADVANCED_LEVEL = 2;
     public static final int SUPER_LEVEL = 3;
     private int level;
 
-    public Player() {
+    public Player_before() {
         level = BEGINNER_LEVEL;
     }
 

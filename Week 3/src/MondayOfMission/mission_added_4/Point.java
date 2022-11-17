@@ -1,4 +1,4 @@
-package MondayOfMission.mission_added_3;
+package MondayOfMission.mission_added_4;
 
 public class Point {
     private int x, y;

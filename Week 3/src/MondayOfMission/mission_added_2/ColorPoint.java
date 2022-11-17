@@ -1,8 +1,15 @@
-package MondayOfMission.mission_added_1;
+package MondayOfMission.mission_added_2;
 
-public class ColorPoint extends Point{
+public class ColorPoint extends Point {
     private String color;
 
+    public ColorPoint(){
+        super();
+    }
+
+    public ColorPoint(int x, int y){
+    super(x,y);
+    }
 
     public ColorPoint(int x, int y, String color){
         super(x,y);
