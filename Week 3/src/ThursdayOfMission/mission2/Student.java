@@ -1,34 +1,56 @@
 package ThursdayOfMission.mission2;
 
+
+import java.util.*;
+
+
 public class Student {
-    private int studentId;
-    private String studentName;
+    private int Id;
+    private String name;
 
+    private Score score;
+    private SubjectName major;
 
+    public Student(int Id, String name, SubjectName major) {
+        this.Id = Id;
+        this.name = name;
 
-
-
-
-
-
-
-
-
-
-    public String getStudentName() {
-        return studentName;
+        this.major = major;
     }
 
-    public void setStudentName(String studentName) {
-        this.studentName = studentName;
+    public void setScore(Score score){
+        this.score = score;
+    }
+
+    public int getScore(Subject subject){
+        return score.getScore();
+    }
+
+    public int getClassificationNumber(Subject subject){
+        return score.getClassificationNumber().number;
     }
 
 
-    public int getStudentId() {
-        return studentId;
+
+
+
+
+
+
+
+
+    public String getName() {
+        return name;
     }
 
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
+
+    public int getId() {
+        return Id;
     }
+
+    public SubjectName getMajor(){
+        return major;
+    }
+
+
 }

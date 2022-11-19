@@ -1,27 +1,65 @@
 package ThursdayOfMission.mission2;
 
-import java.io.IOException;
-import java.util.Deque;
+import ThursdayOfMission.mission2.GradeEvaluation.BasicEvaluation;
+import ThursdayOfMission.mission2.GradeEvaluation.GradeEvaluation;
+import ThursdayOfMission.mission2.GradeEvaluation.MajorEvalution;
+
+import java.util.List;
+
 
 public class Report {
 
-    private GradeReader gradeReader;
-    private GradeEvaluation gradeEvaluation;
+
+    private GradeEvaluation[] gradeEvaluation = new GradeEvaluation[2];
+
+    private StringBuffer stringBuffer;
 
     public Report(){
-         gradeReader = new GradeReader();
+        stringBuffer = new StringBuffer();
+        gradeEvaluation = new GradeEvaluation[]{new MajorEvalution(), new BasicEvaluation()};
     }
 
-    public void reportGrade() throws IOException {
 
-        Deque<Deque<String>> infos =  gradeReader.getInfos("test.txt");
-        Deque<String> info;
-        String line;
-        while((info = infos.poll()) != null){
+    public void makeHeader(Subject subject){
+        stringBuffer.append("------------------------------------------ \n");
+        stringBuffer.append("          ").append(subject.getName()).append("  수강생     학점     \n");
+        stringBuffer.append(" 이름  |  학번  |  중점과목  |  점수  \n");
+    }
+    public void makeBody(Subject subject){
+        List<Student> studentList = subject.getStudentList();
 
+        for(Student student: studentList){
+            stringBuffer.append("-------------------------------------------\n");
+
+
+            stringBuffer.append(student.getName()).append(" | ");
+            stringBuffer.append(student.getId()).append(" | ");
+            stringBuffer.append(student.getMajor()).append(" | ");
+            stringBuffer.append(student.getScore(subject)).append(":");
+
+            stringBuffer.append(gradeEvaluation[student.getClassificationNumber(subject)].getGrade(student.getScore(subject)));
+            stringBuffer.append("  | \n");
         }
 
 
+
+    }
+
+    public void makeFooter(Subject subject){
+        stringBuffer.append("-------------------------------------------\n");
+
+    }
+
+
+
+
+
+
+    public String showGrade(Subject subject){
+        makeHeader(subject);
+        makeBody(subject);
+        makeFooter(subject);
+        return stringBuffer.toString();
     }
 
 

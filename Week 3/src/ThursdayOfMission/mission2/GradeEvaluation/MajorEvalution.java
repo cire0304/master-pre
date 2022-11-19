@@ -1,4 +1,4 @@
-package ThursdayOfMission.mission2;
+package ThursdayOfMission.mission2.GradeEvaluation;
 
 public class MajorEvalution implements GradeEvaluation{
 
