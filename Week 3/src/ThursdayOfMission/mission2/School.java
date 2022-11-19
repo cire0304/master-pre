@@ -18,9 +18,7 @@ public class School {
     }
 
 
-    public void initializeSubjectList(String[] infos) {
 
-    }
 
     public void loadInfoFromDB() throws IOException{
         List<String> InfosList = fileRead();
@@ -59,7 +57,8 @@ public class School {
     public void showGrades(){
 
         for(Subject subject: subjectList){
-            System.out.print(report.showGrade(subject));
+            report.showGrade(subject);
+
         }
 
 

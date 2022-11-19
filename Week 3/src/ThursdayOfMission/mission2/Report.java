@@ -49,17 +49,14 @@ public class Report {
         stringBuffer.append("-------------------------------------------\n");
 
     }
+    
 
-
-
-
-
-
-    public String showGrade(Subject subject){
+    public void showGrade(Subject subject){
         makeHeader(subject);
         makeBody(subject);
         makeFooter(subject);
-        return stringBuffer.toString();
+        System.out.print(stringBuffer.toString());
+        stringBuffer.delete(0, stringBuffer.length());
     }
 
 
