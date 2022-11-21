@@ -1,10 +1,10 @@
-package MondayOfMission.mission1;
+package MondayOfMission.mission2;
 
 public class MemberShipManagementListTest {
 
     public static void main(String[] args) {
 
-        MemberShipMangementList management = new MemberShipMangementList();
+        MemberShipMangementSet management = new MemberShipMangementSet();
         management.addMemberShip(1001, "Hong", GRADE.RED);
         management.addMemberShip(1002, "Park", GRADE.DIAMOND);
         management.addMemberShip(1003, "Kim", GRADE.PLATINUM);
@@ -21,6 +21,11 @@ public class MemberShipManagementListTest {
         if(management.removeMember(1005)) {
             management.showAllMember();
         }
+
+        System.out.println("이미 존재 하는 아이드를 추가하려 할때:");
+        management.addMemberShip(1002, "Lee", GRADE.DIAMOND);
+
+        management.showAllMember();
 
 
     }
