@@ -24,17 +24,18 @@ public class School {
         List<String> InfosList = fileRead();
         subjectList.add(new Subject(SubjectName.KOREAN));
         subjectList.add(new Subject(SubjectName.MATH));
+        int temp_index = 4;
 
 
         for(Subject subject : subjectList){
             for(String info: InfosList){
                 String[] line = info.split("\t");
 
-                Student student = new Student(Integer.parseInt(line[1]) ,  line[0], SubjectName.valueOf(line[3]));
-                student.setScore(new Score(Integer.parseInt(line[4]), subject.getName(), (subject.getName() == student.getMajor() ) ? ClassificationNumber.Major : ClassificationNumber.NonMajor ));
+                Student student = new Student( line[0], Integer.parseInt(line[1]), SubjectName.valueOf(line[3]));
+                student.setScore(new Score(Integer.parseInt(line[temp_index]), subject.getName(), (subject.getName() == student.getMajor() ) ? ClassificationNumber.Major : ClassificationNumber.NonMajor ));
                 subject.addStudent(student);
             }
-
+            temp_index++;
         }
 
     }
@@ -44,8 +45,6 @@ public class School {
         bufferedReader.readLine();
 
         List<String> stringList = new ArrayList<>();
-
-
         String line;
         while((line = bufferedReader.readLine()) != null) {
             stringList.add(line);

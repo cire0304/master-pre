@@ -3,6 +3,7 @@ package ThursdayOfMission.mission2;
 import ThursdayOfMission.mission2.GradeEvaluation.BasicEvaluation;
 import ThursdayOfMission.mission2.GradeEvaluation.GradeEvaluation;
 import ThursdayOfMission.mission2.GradeEvaluation.MajorEvalution;
+import ThursdayOfMission.mission2.GradeEvaluation.NewEvaluation;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class Report {
 
     public Report(){
         stringBuffer = new StringBuffer();
-        gradeEvaluation = new GradeEvaluation[]{new MajorEvalution(), new BasicEvaluation()};
+        gradeEvaluation = new GradeEvaluation[]{new MajorEvalution(), new BasicEvaluation(), new NewEvaluation()};
     }
 
 
@@ -49,7 +50,7 @@ public class Report {
         stringBuffer.append("-------------------------------------------\n");
 
     }
-    
+
 
     public void showGrade(Subject subject){
         makeHeader(subject);

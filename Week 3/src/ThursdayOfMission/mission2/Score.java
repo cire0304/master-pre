@@ -1,7 +1,7 @@
 package ThursdayOfMission.mission2;
 
 enum ClassificationNumber{
-    Major(0),NonMajor(1);
+    Major(0),NonMajor(1), NewNumber(2);
     public final int number;
     ClassificationNumber(int number){
         this.number = number;

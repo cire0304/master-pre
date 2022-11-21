@@ -11,7 +11,7 @@ public class Student {
     private Score score;
     private SubjectName major;
 
-    public Student(int Id, String name, SubjectName major) {
+    public Student( String name, int Id, SubjectName major) {
         this.Id = Id;
         this.name = name;
 
