@@ -1,4 +1,4 @@
-package MondayOfMission.mission1;
+package MondayOfMission;
 
 public class CustomerTest {
 
