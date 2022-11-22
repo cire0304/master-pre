@@ -1,11 +1,11 @@
 package MondayOfMission.mission4;
 
-public class MemberShipManagementMapTest {
+public class MemberShipManagementTreeSetTest {
 
     public static void main(String[] args) {
 
 
-        MemberShipMangementMap management = new MemberShipMangementMap();
+        MemberShipManagementTreeSet management = new MemberShipManagementTreeSet();
         management.addMemberShip(1001, "Hong", GRADE.RED);
         management.addMemberShip(1002, "Park", GRADE.DIAMOND);
         management.addMemberShip(1003, "Kim", GRADE.PLATINUM);

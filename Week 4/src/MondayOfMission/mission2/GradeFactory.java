@@ -1,4 +1,4 @@
-package MondayOfMission.mission1;
+package MondayOfMission.mission2;
 
 
 enum GRADE{

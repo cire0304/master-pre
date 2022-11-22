@@ -1,4 +1,4 @@
-package MondayOfMission.mission2;
+package MondayOfMission.mission3;
 
 public class DiamondCustomer extends Customer {
 

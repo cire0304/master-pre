@@ -1,6 +1,6 @@
 package MondayOfMission.mission2;
 
-public class MemberShipManagementListTest {
+public class MemberShipManagementSetTest {
 
     public static void main(String[] args) {
 

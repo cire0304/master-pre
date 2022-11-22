@@ -1,6 +1,6 @@
-package MondayOfMission.mission1;
+package MondayOfMission.mission2;
 
-public class RedCustomer extends Customer{
+public class RedCustomer extends Customer {
 
 
 

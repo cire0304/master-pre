@@ -1,29 +1,30 @@
-package MondayOfMission.mission2;
+package MondayOfMission.mission3;
 
+import java.util.HashMap;
 import java.util.HashSet;
 
-public class MemberShipMangementSet {
-    private HashSet<Customer> customerList;
+public class MemberShipMangementMap {
+    private HashMap<Integer, Customer> customerList;
     private GradeFactory gradeFactory;
     private final String line = "======================================";
 
-    public MemberShipMangementSet() {
-        customerList = new HashSet<>();
+    public MemberShipMangementMap() {
+        customerList = new HashMap<>();
         gradeFactory = new GradeFactory();
     }
 
     public void addMemberShip( int id, String name, GRADE grade){
-
-        if(customerList.add(gradeFactory.createGrade(id, name, grade))) {
-            return;
+        if (customerList.containsKey(id)) {
+            System.out.printf("이미 있는 아아디 %d의 값이 변경됩니다.\n", id);
+            customerList.remove(id);
         }
-        System.out.printf("이미 있는 아이디%d는 추가할 수 없습니다.\n",id);
-
+        customerList.put(id, gradeFactory.createGrade(id,name,grade));
     }
 
     public void showAllMember() {
         System.out.println(line);
-        for(Customer customer : customerList) {
+        for(int id : customerList.keySet()) {
+            Customer customer = customerList.get(id);
             customer.showCustomerInfo();
         }
         System.out.println(line);
@@ -31,14 +32,11 @@ public class MemberShipMangementSet {
 
     public boolean removeMember(int id) {
 
-        for (Customer customer : customerList){
-            if (customer.getId() == id) {
-                return customerList.remove(customer);
-            }
+        if (customerList.remove(id) == null){
+            System.out.printf("%d에 해당하는 멤버가 없습니다.\n", id);
+            return false;
         }
-        System.out.printf("%d에 해당하는 멤버가 없습니다.\n", id);
-
-        return false;
+        return true;
     }
 
 

@@ -1,10 +1,11 @@
-package MondayOfMission.mission2;
+package MondayOfMission.mission3;
 
-public class MemberShipManagementListTest {
+public class MemberShipManagementMapTest {
 
     public static void main(String[] args) {
 
-        MemberShipMangementSet management = new MemberShipMangementSet();
+
+        MemberShipMangementMap management = new MemberShipMangementMap();
         management.addMemberShip(1001, "Hong", GRADE.RED);
         management.addMemberShip(1002, "Park", GRADE.DIAMOND);
         management.addMemberShip(1003, "Kim", GRADE.PLATINUM);
@@ -22,11 +23,13 @@ public class MemberShipManagementListTest {
             management.showAllMember();
         }
 
-        System.out.println("이미 존재 하는 아이드를 추가하려 할때:");
+        System.out.println("이미 존재 하는 아이드를 추가하려 할때 :");
         management.addMemberShip(1002, "Lee", GRADE.DIAMOND);
 
         management.showAllMember();
 
-
+        management.addMemberShip(1003, "Song", GRADE.PLATINUM);
+        management.showAllMember();
     }
-}
+    }
+
