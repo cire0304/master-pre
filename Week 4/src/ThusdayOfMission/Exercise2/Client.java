@@ -86,15 +86,16 @@ public class Client {
 
                 try {
                     while (true) {
-                        out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+                        PrintWriter out =new PrintWriter( new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())),true);
                         System.out.print("메세지 출력 : ");
                         String outputMessage = scanner.nextLine();
                         if (socket.isClosed()) {
                             break;
                         }
-                        System.out.println("서버에 메세지를 전송합니다.");
-                        out.write(outputMessage); out.flush();
-                        System.out.println("서버에 메세지를 전송했습니다.");
+
+                        out.println(outputMessage);
+                        // out.flush();
+
 
                     }
 

@@ -106,17 +106,17 @@ public class Server {
                     try {
 
                         while (true) {
-                            System.out.println("입력 스트림을 생성하였습니다.");
+
                             if (socket.isClosed()) {
                                 throw new IOException();
                             }
-                            System.out.println("입력 대기 중입니다.");
+
                             String inputMessage = in.readLine();
-                            System.out.println("입력을 받았습니다.");
+
                             for (Client client : connections) {
                                 client.send(inputMessage);
                             }
-                            System.out.println("모든 클라이언트에게 메세지를 전달하였습니다.");
+
                         }
 
                     } catch (Exception e) {
@@ -142,9 +142,9 @@ public class Server {
                 public void run() {
                     try {
                         System.out.println("메세지를 전송합니다.");
-                        out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-                        out.write(data);
-                        out.flush();
+                        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
+                        out.println(data);
+                        // out.flush();
 
 
                     } catch (Exception e) {

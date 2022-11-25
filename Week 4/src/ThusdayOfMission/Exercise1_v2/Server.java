@@ -62,18 +62,18 @@ public class Server {
                 while(true) {
                     try {
 
-                        OutputStream out= socket.getOutputStream();
-                        PrintWriter writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(out,"UTF-8")),true);
-                        System.out.print("메세지 입력 : ");
-                        String message = scanner.nextLine();
-                        writer.println(message);
-
 //                        OutputStream out= socket.getOutputStream();
-//                        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(out, "UTF-8"));
+//                        PrintWriter writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(out,"UTF-8")),true);
 //                        System.out.print("메세지 입력 : ");
 //                        String message = scanner.nextLine();
-//                        writer.write(message);
-//                        writer.flush();
+//                        writer.println(message);
+//===================================================================
+                        OutputStream out= socket.getOutputStream();
+                        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(out, "UTF-8"));
+                        System.out.print("메세지 입력 : ");
+                        String message = scanner.nextLine();
+                        writer.write(message);
+                        writer.flush();
 
 
 
