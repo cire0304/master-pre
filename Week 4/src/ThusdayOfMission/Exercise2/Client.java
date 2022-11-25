@@ -1,64 +1,113 @@
-package ThusdayOfMission.Exercise1;
+package ThusdayOfMission.Exercise2;
 
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.*;
-import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 
+import static jdk.jfr.internal.consumer.EventLog.stop;
+
 public class Client {
 
-    public static void main(String[] args) throws IOException {
+    Socket socket;
+    BufferedReader in;
+    BufferedWriter out;
+    Scanner scanner;
+
+    public Client() {
+        scanner = new Scanner(System.in);
+
+    }
 
 
-        BufferedReader in = null;
-        BufferedWriter out = null;
-
-        Scanner scanner = new Scanner(System.in);
-        Socket socket = null;
-
+    void startClient() {
 
         try {
             socket = new Socket("127.0.0.1", 50000);
-            System.out.println("서버 연결 됨");
+            send();
+            receive();
 
-            out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-            in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        } catch (IOException e) {
+            if (!socket.isClosed()) {
+                stopClient();
+            }
+        }
 
-            while (true) {
+    }
 
+    void stopClient() {
+        System.out.println("연결 끊음");
+        if (socket != null && !socket.isClosed()) {
+            try {
+                socket.close();
+            } catch (Exception e) {
+            }
+        }
+    }
 
-                System.out.print("입력하기 : ");
-                String outputMessage = scanner.nextLine();
-                if ("quit".equalsIgnoreCase(outputMessage)) {
-                    System.out.println("채팅을 종료합니다.");
-                    break;
+    void receive() {
+
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+                        in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
+                        if (socket.isClosed()) {
+                            throw new IOException();
+                        }
+
+                        String inputMessage = in.readLine();
+                        System.out.println(inputMessage);
+
+                    } catch (Exception e) {
+                        stopClient();
+                        break;
+                    }
                 }
-                out.write(outputMessage + "\n"); out.flush();
-
-                //=================================
-                String inputMessage = in.readLine();
-                if ("quit".equalsIgnoreCase(inputMessage)) {
-                    System.out.println("클라이언트가 나갔습니다.");
-                    break;
-                }
-                System.out.println("From Server : " + inputMessage);
-
 
 
             }
+        };
 
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            scanner.close();
-            out.close();
-            in.close();
-            socket.close();
-        }
-
-
-
+       thread.start();
 
     }
+
+    void send() {
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+
+                try {
+                    while (true) {
+                        out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+                        System.out.print("메세지 출력 : ");
+                        String outputMessage = scanner.nextLine();
+                        if (socket.isClosed()) {
+                            break;
+                        }
+                        System.out.println("서버에 메세지를 전송합니다.");
+                        out.write(outputMessage); out.flush();
+                        System.out.println("서버에 메세지를 전송했습니다.");
+
+                    }
+
+                } catch (Exception e) {
+                    stopClient();
+
+                }
+
+            }
+        };
+        thread.start();
+
+    }
+
+
 }

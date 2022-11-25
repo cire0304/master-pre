@@ -1,93 +1,105 @@
 package ThusdayOfMission.Exercise1_v3;
-import java.io.*;
-import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 
-public class TcpServerExample {
+public class msg_server extends Thread {
+    static ArrayList<Socket> users = new ArrayList<Socket>();
+    Socket socket;
+    String nick="";
+    public msg_server(Socket socket) {
+        this.socket = socket;
+        users.add(socket);
+    }
 
-    public static int tcpServerPort = 9999;
+    @Override
+    public void run() {
+        try {
+            while (true) {
+                String s;
+                InputStream input = socket.getInputStream();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(input,"UTF-8")); // 읽기
+                if ((s = reader.readLine()) != null) {
+                    if (s.equals("/quit")) {
+                        PrintWriter wr = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream(),"UTF-8")),true);
+                        wr.println(s);
+                        break;
+                    }
+                    if (s.startsWith("/init_name ")) {
+                        nick=s.split(" ")[1];
+                        for (int i = 0; i < users.size(); i++) {
+
+                            OutputStream out = users.get(i).getOutputStream(); // 쓰기
+                            PrintWriter writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(out,"UTF-8")),true);
+                            //PrintWriter writer = new PrintWriter(out, true); //
+                            writer.println(nick+" 님이 입장하셨습니다.");
+
+                            // writer.flush();
+                        }
+                        continue;
+                    }
+
+                    System.out.println(s);
+                    for (int i = 0; i < users.size(); i++) {
+
+                        OutputStream out = users.get(i).getOutputStream(); // 쓰기
+                        PrintWriter writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(out,"UTF-8")),true);
+                        //PrintWriter writer = new PrintWriter(out, true); //
+                        writer.println(s);
+                        // writer.flush();
+                    }}
+
+
+
+            }
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        finally{
+            for (int i = 0; i < users.size(); i++) {
+
+                OutputStream out;
+                try {
+                    out = users.get(i).getOutputStream();
+                    PrintWriter writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(out,"UTF-8")),true);
+                    //PrintWriter writer = new PrintWriter(out, true); //
+                    writer.println( nick+"님이 방을 나갔습니다.");
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                } // 쓰기
+
+                // writer.flush();
+            }
+        }
+    }
 
     public static void main(String[] args) {
-        new TcpServerExample(tcpServerPort);
-    }
 
-    public TcpServerExample(int portNo) {
-        tcpServerPort = portNo;
+
+        // TODO Auto-generated method stub
+        int socket = 2400;
         try {
-            // ServerSocket 생성
-            ServerSocket serverSocket = new ServerSocket();
-            serverSocket.bind(new InetSocketAddress(tcpServerPort));
-            System.out.println("Starting tcp Server: " + tcpServerPort);
-            System.out.println("[ Waiting ]\n");
+            ServerSocket ss = new ServerSocket(socket);
+            System.out.println("서버 열림");
             while (true) {
-                // socket -> bind -> listen socket 클래스 내부에 구현되어 있음
-                Socket socket = serverSocket.accept();
-                System.out.println("Connected " + socket.getLocalPort() + " Port, From " + socket.getRemoteSocketAddress().toString() + "\n");
-                // Thread
-                Server tcpServer = new Server(socket);
-                tcpServer.start();
+                Socket user = ss.accept();
+                System.out.println("클라이언트 입장 " + user.getLocalAddress() + " : " + user.getLocalPort());
+                Thread serverThread = new msg_server(user);
+                serverThread.start();
             }
-        } catch (IOException io) {
-            io.getStackTrace();
-        }
-    }
-
-    public class Server extends Thread {
-        private Socket socket;
-
-        public Server(Socket socket) {
-            this.socket = socket;
-        }
-
-        public void run() {
-            try {
-                while (true) {
-                    // Socket에서 가져온 출력스트림
-                    OutputStream os = this.socket.getOutputStream();
-                    DataOutputStream dos = new DataOutputStream(os);
-
-                    // Socket에서 가져온 입력스트림
-                    InputStream is = this.socket.getInputStream();
-                    DataInputStream dis = new DataInputStream(is);
-
-                    // read int
-                    int recieveLength = dis.readInt();
-
-                    // receive bytes
-                    byte receiveByte[] = new byte[recieveLength];
-                    dis.readFully(receiveByte, 0, recieveLength);
-                    String receiveMessage = new String(receiveByte);
-                    System.out.println("receiveMessage : " + receiveMessage);
-                    System.out.println("[ Data Receive Success ]\n");
-
-                    // send bytes
-                    String sendMessage = "서버에서 보내는 데이터";
-                    byte[] sendBytes = sendMessage.getBytes("UTF-8");
-                    int sendLength = sendBytes.length;
-                    dos.writeInt(sendLength);
-                    dos.write(sendBytes, 0, sendLength);
-                    dos.flush();
-
-                    System.out.println("sendMessage : " + sendMessage);
-                    System.out.println("[ Data Send Success ]");
-                }
-            } catch (EOFException e) {
-                // readInt()를 호출했을 때 더 이상 읽을 내용이 없으면 EOFException이 발생한다.
-            } catch (IOException e) {
-                e.printStackTrace();
-            } finally {
-                try {
-                    if (this.socket != null) {
-                        System.out.print("\n[ Socket closed ] ");
-                        System.out.println("Disconnected :" + this.socket.getInetAddress().getHostAddress() + ":"
-                                + this.socket.getPort());
-                        this.socket.close();
-                    }
-                } catch (Exception e) {
-                }
-            }
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
     }
 }

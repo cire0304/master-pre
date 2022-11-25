@@ -1,63 +1,85 @@
-package ThusdayOfMission.Exercise1;
+package ThusdayOfMission.Exercise1_v2;
 
 import java.io.*;
-import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 
 public class Client {
 
+    BufferedReader in = null;
+    //BufferedWriter out = null;
+
+    Scanner scanner = new Scanner(System.in);
+    Socket socket = null;
+
+    public Client() throws IOException {
+        socket = new Socket("127.0.0.1", 2400);
+        System.out.println("서버 연결 됨");
+
+
+        Scanner scanner = new Scanner(System.in);
+    }
+
+    public void receive() throws IOException {
+        Thread thread = new Thread() {
+
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+                        in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                        String message = in.readLine();
+                        System.out.println("서버 : " + message);
+
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
+
+        };
+        thread.start();
+    }
+
+    public void send() throws IOException {
+
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+
+
+//                        OutputStream out= socket.getOutputStream();
+//                        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(out, "UTF-8"));
+//                        System.out.print("메세지 입력 : ");
+//                        String message = scanner.nextLine();
+//                        writer.write(message);
+//                        writer.flush();
+
+                        OutputStream out= socket.getOutputStream();
+                        PrintWriter writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(out,"UTF-8")),true);
+                        System.out.print("메세지 입력 : ");
+                        String message = scanner.nextLine();
+                        writer.println(message);
+
+
+                    } catch (Exception e) {
+                    }
+                    ;
+                }
+            }
+        };
+        thread.start();
+    }
+
+
     public static void main(String[] args) throws IOException {
 
 
-        BufferedReader in = null;
-        BufferedWriter out = null;
-
-        Scanner scanner = new Scanner(System.in);
-        Socket socket = null;
-
-
-        try {
-            socket = new Socket("127.0.0.1", 50000);
-            System.out.println("서버 연결 됨");
-
-            out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-            in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-
-            while (true) {
-
-
-                System.out.print("입력하기 : ");
-                String outputMessage = scanner.nextLine();
-                if ("quit".equalsIgnoreCase(outputMessage)) {
-                    System.out.println("채팅을 종료합니다.");
-                    break;
-                }
-                out.write(outputMessage + "\n"); out.flush();
-
-                //=================================
-                String inputMessage = in.readLine();
-                if ("quit".equalsIgnoreCase(inputMessage)) {
-                    System.out.println("클라이언트가 나갔습니다.");
-                    break;
-                }
-                System.out.println("From Server : " + inputMessage);
-
-
-
-            }
-
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            scanner.close();
-            out.close();
-            in.close();
-            socket.close();
-        }
-
-
+        Client client = new Client();
+        client.send();
+        client.receive();
 
 
     }

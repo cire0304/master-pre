@@ -1,4 +1,4 @@
-package ThusdayOfMission;
+package ThusdayOfMission.Example;
 
 import java.io.*;
 import java.net.Socket;

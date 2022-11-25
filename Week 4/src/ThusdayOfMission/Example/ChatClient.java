@@ -1,4 +1,4 @@
-package ThusdayOfMission;
+package ThusdayOfMission.Example;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;

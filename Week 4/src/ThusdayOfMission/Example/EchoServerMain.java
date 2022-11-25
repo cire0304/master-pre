@@ -1,4 +1,4 @@
-package ThusdayOfMission;
+package ThusdayOfMission.Example;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -11,7 +11,7 @@ public class EchoServerMain{
 
 
     public static void main (String args[]) throws IOException {
-//        ServerSocket ss = new ServerSocket(10000);
+//        ThusdayOfMission.Exercise.ServerSocket ss = new ThusdayOfMission.Exercise.ServerSocket(10000);
 //        Socket socket = ss.accept();
 //        InputStream is = socket.getInputStream();
 //        OutputStream os = socket.getOutputStream();
@@ -29,9 +29,13 @@ public class EchoServerMain{
             BufferedReader br;
             BufferedWriter bw;
             br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
+
             bw = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 
+
             String temp = br.readLine();
+            System.out.println(temp);
             bw.write(temp + " 1\n"); bw.flush();
             bw.write(temp + " 2\n"); bw.flush();
             bw.write(temp + " 3\n"); bw.flush();
