@@ -13,6 +13,7 @@ import static jdk.jfr.internal.consumer.EventLog.stop;
 
 public class Client {
 
+    String nickName;
     Socket socket;
     BufferedReader in;
     BufferedWriter out;
@@ -20,6 +21,8 @@ public class Client {
 
     public Client() {
         scanner = new Scanner(System.in);
+        System.out.print("닉네임을 입력해주세요! ");
+        nickName = scanner.nextLine();
 
     }
 
@@ -85,15 +88,16 @@ public class Client {
             public void run() {
 
                 try {
+                    System.out.print("메세지를 입력해주세요! \n");
                     while (true) {
                         PrintWriter out =new PrintWriter( new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())),true);
-                        System.out.print("메세지 출력 : ");
+
                         String outputMessage = scanner.nextLine();
                         if (socket.isClosed()) {
                             break;
                         }
 
-                        out.println(outputMessage);
+                        out.println(nickName + " : " +outputMessage);
                         // out.flush();
 
 

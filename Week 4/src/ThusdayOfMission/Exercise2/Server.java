@@ -113,6 +113,7 @@ public class Server {
 
                             String inputMessage = in.readLine();
 
+                            System.out.println(inputMessage);
                             for (Client client : connections) {
                                 client.send(inputMessage);
                             }
@@ -141,7 +142,7 @@ public class Server {
                 @Override
                 public void run() {
                     try {
-                        System.out.println("메세지를 전송합니다.");
+
                         PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
                         out.println(data);
                         // out.flush();
